@@ -1,0 +1,36 @@
+{
+  "user": {
+    "name": "Jamie Rivera",
+    "email": "jamie@example.com",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
+    "memberSince": "March 2024"
+  },
+  "favoriteIds": ["1", "2", "5", "9"],
+  "savedIds": ["4", "7"],
+  "rentalRequests": [
+    {
+      "id": "r1",
+      "propertyId": "3",
+      "propertyTitle": "Boutique Studio in Arts District",
+      "status": "pending",
+      "submittedAt": "2026-05-02",
+      "message": "Looking to move in June 1."
+    },
+    {
+      "id": "r2",
+      "propertyId": "8",
+      "propertyTitle": "Harbor-Adjacent Duplex",
+      "status": "approved",
+      "submittedAt": "2026-04-18",
+      "message": "Flexible on start date."
+    },
+    {
+      "id": "r3",
+      "propertyId": "6",
+      "propertyTitle": "Garden-Level Flat",
+      "status": "declined",
+      "submittedAt": "2026-03-30",
+      "message": "Interested in 12-month lease."
+    }
+  ]
+}

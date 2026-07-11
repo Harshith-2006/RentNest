@@ -1,0 +1,51 @@
+{
+  "listings": [
+    {
+      "id": "o-list-1",
+      "propertyId": "1",
+      "title": "Skyline Penthouse with Terrace",
+      "rent": 3200,
+      "status": "available",
+      "thumb": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=80"
+    },
+    {
+      "id": "o-list-2",
+      "propertyId": "4",
+      "title": "Family Home with Oak Kitchen",
+      "rent": 2800,
+      "status": "available",
+      "thumb": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=80"
+    },
+    {
+      "id": "o-list-3",
+      "propertyId": "7",
+      "title": "Desert Modern Casita",
+      "rent": 2200,
+      "status": "booked",
+      "thumb": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80"
+    }
+  ],
+  "incomingRequests": [
+    {
+      "id": "or1",
+      "propertyTitle": "Skyline Penthouse with Terrace",
+      "tenant": "Taylor Kim",
+      "status": "pending",
+      "submittedAt": "2026-05-10"
+    },
+    {
+      "id": "or2",
+      "propertyTitle": "Family Home with Oak Kitchen",
+      "tenant": "Riley Scott",
+      "status": "pending",
+      "submittedAt": "2026-05-08"
+    },
+    {
+      "id": "or3",
+      "propertyTitle": "Desert Modern Casita",
+      "tenant": "Casey Wu",
+      "status": "approved",
+      "submittedAt": "2026-04-22"
+    }
+  ]
+}

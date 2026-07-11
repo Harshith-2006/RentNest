@@ -1,0 +1,35 @@
+{
+  "stats": {
+    "totalUsers": 12840,
+    "totalOwners": 842,
+    "activeListings": 5620,
+    "reportedListings": 37
+  },
+  "pendingOwners": [
+    { "id": "po1", "name": "Harper Quinn", "email": "harper@example.com", "submittedAt": "2026-05-11" },
+    { "id": "po2", "name": "Logan Price", "email": "logan@example.com", "submittedAt": "2026-05-09" }
+  ],
+  "reports": [
+    {
+      "id": "rep1",
+      "listingId": "99",
+      "listingTitle": "Too-good-to-be-true loft",
+      "reason": "Suspected scam pricing",
+      "reporter": "anon_user",
+      "date": "2026-05-12"
+    },
+    {
+      "id": "rep2",
+      "listingId": "6",
+      "listingTitle": "Garden-Level Flat",
+      "reason": "Photos do not match address",
+      "reporter": "verified_user",
+      "date": "2026-05-07"
+    }
+  ],
+  "usersSample": [
+    { "id": "u1", "name": "Jamie Rivera", "role": "user", "status": "active" },
+    { "id": "u2", "name": "Morgan Blake", "role": "owner", "status": "active" },
+    { "id": "u3", "name": "Sky Rentals LLC", "role": "owner", "status": "blocked" }
+  ]
+}
