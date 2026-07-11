@@ -18,7 +18,7 @@ export function useFavorites() {
     try {
 
       const response = await axios.get(
-        "http://localhost:5000/favorite",
+        "https://rentnest-fako.onrender.com/favorite",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -51,7 +51,7 @@ export function useFavorites() {
       if (ids.includes(id)) {
 
         const response = await axios.get(
-          "http://localhost:5000/favorite",
+          "https://rentnest-fako.onrender.com/favorite",
           {
             headers: {
               Authorization: `Bearer ${token}`
@@ -66,7 +66,7 @@ export function useFavorites() {
         if (favorite) {
 
           await axios.delete(
-            `http://localhost:5000/favorite/remove/${favorite._id}`,
+            `https://rentnest-fako.onrender.com/favorite/remove/${favorite._id}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`
@@ -86,7 +86,7 @@ export function useFavorites() {
       else {
 
         await axios.post(
-          `http://localhost:5000/favorite/add/${id}`,
+          `https://rentnest-fako.onrender.com/favorite/add/${id}`,
           {},
           {
             headers: {

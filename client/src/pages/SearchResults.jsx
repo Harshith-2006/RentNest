@@ -119,7 +119,7 @@ export default function SearchResults() {
       try {
 
         const response = await axios.get(
-          "http://localhost:5000/house"
+          "https://rentnest-fako.onrender.com/house"
         );
 
         if (!cancelled) {
@@ -135,7 +135,7 @@ export default function SearchResults() {
 
               image:
                 house.image
-                  ? `http://localhost:5000/${house.image}`
+                  ? `https://rentnest-fako.onrender.com/${house.image}`
                   : "",
 
             }));

@@ -105,7 +105,7 @@ export default function ManageHouses() {
                 <td className="p-3">
 
                   <img
-                    src={`http://localhost:5000/${house.image}`}
+                    src={`https://rentnest-fako.onrender.com/${house.image}`}
                     alt={house.title}
                     className="w-24 h-16 object-cover rounded mx-auto"
                   />

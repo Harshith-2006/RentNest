@@ -48,7 +48,7 @@ export default function HouseDetails() {
     try {
 
       const response = await axios.get(
-        `http://localhost:5000/house/${id}`
+        `https://rentnest-fako.onrender.com/house/${id}`
       );
 
       setHouse(response.data);
@@ -77,7 +77,7 @@ export default function HouseDetails() {
         localStorage.getItem("token");
 
       const response = await axios.post(
-        `http://localhost:5000/request/add/${id}`,
+        `https://rentnest-fako.onrender.com/request/add/${id}`,
         {
           message: note
         },
@@ -150,7 +150,7 @@ export default function HouseDetails() {
         <div>
 
           <img
-            src={`http://localhost:5000/${house.image}`}
+            src={`https://rentnest-fako.onrender.com/${house.image}`}
             alt={house.title}
             className="h-[450px] w-full rounded-3xl object-cover"
           />

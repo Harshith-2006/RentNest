@@ -49,7 +49,7 @@ export default function OwnerDashboard() {
         localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:5000/owner/dashboard",
+        "https://rentnest-fako.onrender.com/owner/dashboard",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -81,7 +81,7 @@ export default function OwnerDashboard() {
         localStorage.getItem("token");
 
       const response = await axios.put(
-        `http://localhost:5000/request/accept/${id}`,
+        `https://rentnest-fako.onrender.com/request/accept/${id}`,
         {},
         {
           headers: {
@@ -118,7 +118,7 @@ export default function OwnerDashboard() {
         localStorage.getItem("token");
 
       const response = await axios.put(
-        `http://localhost:5000/request/reject/${id}`,
+        `https://rentnest-fako.onrender.com/request/reject/${id}`,
         {},
         {
           headers: {
@@ -250,7 +250,7 @@ export default function OwnerDashboard() {
                 >
 
                   <img
-                    src={`http://localhost:5000/${house.image}`}
+                    src={`https://rentnest-fako.onrender.com/${house.image}`}
                     alt={house.title}
                     className="h-52 w-full object-cover"
                   />

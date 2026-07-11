@@ -47,7 +47,7 @@ export default function AddHouse() {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/house/add",
+        "https://rentnest-fako.onrender.com/house/add",
         formData,
         {
           headers: {

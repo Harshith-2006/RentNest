@@ -35,7 +35,7 @@ export default function Favorites() {
     try {
 
       const response = await axios.get(
-        "http://localhost:5000/favorite",
+        "https://rentnest-fako.onrender.com/favorite",
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -54,7 +54,7 @@ export default function Favorites() {
 
           image:
             fav.house.image
-              ? `http://localhost:5000/${fav.house.image}`
+              ? `https://rentnest-fako.onrender.com/${fav.house.image}`
               : "",
 
         }));

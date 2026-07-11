@@ -30,7 +30,7 @@ export default function PropertyCard({
         <div className="relative aspect-[4/3] overflow-hidden">
 
           <img
-            src={`http://localhost:5000/${property.image}`}
+            src={`https://rentnest-fako.onrender.com/${property.image}`}
             alt={property.title}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />
