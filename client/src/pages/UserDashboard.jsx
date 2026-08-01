@@ -48,12 +48,12 @@ export default function UserDashboard() {
   }, []);
 
   const favoriteProps = useMemo(
-    () => properties.filter((p) => (dash?.favoriteIds || []).includes(p.id)),
+    () => properties.filter((p) => (dash?.favoriteIds || []).includes(p._id)),
     [properties, dash]
   );
 
   const savedProps = useMemo(
-    () => properties.filter((p) => (dash?.savedIds || []).includes(p.id)),
+    () => properties.filter((p) => (dash?.savedIds || []).includes(p._id)),
     [properties, dash]
   );
 
@@ -73,16 +73,16 @@ export default function UserDashboard() {
           <section id="profile" className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm dark:border-slate-700/80 dark:bg-slate-900">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
               <img
-                src={dash.user.avatar}
+                src={dash?.user?.avatar}
                 alt=""
                 className="h-20 w-20 rounded-2xl object-cover ring-2 ring-white shadow-md dark:ring-slate-800"
               />
               <div className="flex-1">
                 <h1 className="font-display text-2xl font-semibold text-slate-900 dark:text-white">
-                  {dash.user.name}
+                  {dash?.user?.name}
                 </h1>
-                <p className="text-sm text-slate-600 dark:text-slate-400">{dash.user.email}</p>
-                <p className="mt-1 text-xs text-slate-500">Member since {dash.user.memberSince}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">{dash?.user?.email}</p>
+                <p className="mt-1 text-xs text-slate-500">Member since {dash?.user?.memberSince}</p>
               </div>
               <button
                 type="button"
@@ -109,7 +109,7 @@ export default function UserDashboard() {
             ) : (
               <div className="grid gap-6 sm:grid-cols-2">
                 {favoriteProps.map((p) => (
-                  <PropertyCard key={p.id} property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
+                  <PropertyCard key={p._id} property={p} favorited={has(p._id)} onToggleFavorite={toggle} />
                 ))}
               </div>
             )}
@@ -124,7 +124,7 @@ export default function UserDashboard() {
             ) : (
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {savedProps.map((p) => (
-                  <PropertyCard key={p.id} property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
+                  <PropertyCard key={p._id} property={p} favorited={has(p._id)} onToggleFavorite={toggle} />
                 ))}
               </div>
             )}
@@ -142,7 +142,7 @@ export default function UserDashboard() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                  {dash.rentalRequests.map((r) => (
+                  {(dash?.rentalRequests || []).map((r) => (
                     <tr key={r.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40">
                       <td className="px-4 py-3">
                         <p className="font-medium text-slate-900 dark:text-white">{r.propertyTitle}</p>

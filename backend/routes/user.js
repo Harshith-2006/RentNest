@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const Favorite = require("../models/Favorite");
 
 const authMiddleware = require("../middleware/authMiddleware");
 const roleMiddleware = require("../middleware/roleMiddleware");
@@ -177,6 +178,7 @@ router.get(
   authMiddleware,
   async (req, res) => {
     try {
+
       const user = await User.findById(req.user.id).select("-password");
 
       if (!user) {
@@ -184,6 +186,15 @@ router.get(
           message: "User not found",
         });
       }
+
+      // Get user's favorites
+      const favorites = await Favorite.find({
+        user: req.user.id,
+      });
+
+      const favoriteIds = favorites.map(
+        (fav) => fav.house.toString()
+      );
 
       res.json({
         user: {
@@ -194,16 +205,22 @@ router.get(
           )}&background=0D8ABC&color=fff`,
           memberSince: "RentNest Member",
         },
-        favoriteIds: [],
+
+        favoriteIds,
+
         savedIds: [],
+
         rentalRequests: [],
       });
+
     } catch (err) {
+
       console.log(err);
 
       res.status(500).json({
         message: "Server Error",
       });
+
     }
   }
 );

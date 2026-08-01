@@ -16,7 +16,9 @@ function formatRent(n) {
 
 
 export default function PropertyCard({
-  property
+  property,
+  favorited = false,
+  onToggleFavorite,
 }) {
 
   return (
@@ -34,6 +36,16 @@ export default function PropertyCard({
             alt={property.title}
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />
+          <button
+            onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onToggleFavorite?.(property._id);
+                }}
+              className="absolute right-3 top-3 rounded-full bg-white p-2 shadow-md"
+              >
+                {favorited ? "❤️" : "🤍"}
+          </button>
 
         </div>
 

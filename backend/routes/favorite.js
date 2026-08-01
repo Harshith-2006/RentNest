@@ -67,25 +67,27 @@ router.get("/", authMiddleware, async (req, res) => {
 });
 
 
-// REMOVE FAVORITE
 router.delete("/remove/:id", authMiddleware, async (req, res) => {
-
   try {
+    const favorite = await Favorite.findOneAndDelete({
+      _id: req.params.id,
+      user: req.user.id,
+    });
 
-    await Favorite.findByIdAndDelete(req.params.id);
+    if (!favorite) {
+      return res.status(404).json({
+        message: "Favorite not found",
+      });
+    }
 
     res.status(200).json({
-      message: "Favorite removed"
+      message: "Favorite removed",
     });
-
   } catch (error) {
-
     res.status(500).json({
-      message: "Server Error"
+      message: "Server Error",
     });
-
   }
-
 });
 
 
