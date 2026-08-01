@@ -78,7 +78,7 @@ const featured = list;
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {nearby.map((p) => (
-                  <PropertyCard key={p.id} property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
+                  <PropertyCard key={p._id} property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
                 ))}
               </div>
             </section>
@@ -100,7 +100,7 @@ const featured = list;
               </div>
               <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {featured.map((p) => (
-                  <div key={p.id} className="[&_article]:bg-white [&_article]:text-slate-900">
+                  <div key={p._id} className="[&_article]:bg-white [&_article]:text-slate-900">
                     <PropertyCard property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
                   </div>
                 ))}
@@ -120,7 +120,7 @@ const featured = list;
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {list.slice(0, 4).map((p) => (
-                  <PropertyCard key={p.id} property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
+                  <PropertyCard key={p._id} property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
                 ))}
               </div>
             </section>
