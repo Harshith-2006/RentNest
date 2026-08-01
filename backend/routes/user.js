@@ -169,5 +169,42 @@ router.get(
 
   }
 );
+// ==============================
+// USER DASHBOARD
+// ==============================
+router.get(
+  "/dashboard",
+  authMiddleware,
+  async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id).select("-password");
 
+      if (!user) {
+        return res.status(404).json({
+          message: "User not found",
+        });
+      }
+
+      res.json({
+        user: {
+          name: user.name,
+          email: user.email,
+          avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(
+            user.name
+          )}&background=0D8ABC&color=fff`,
+          memberSince: "RentNest Member",
+        },
+        favoriteIds: [],
+        savedIds: [],
+        rentalRequests: [],
+      });
+    } catch (err) {
+      console.log(err);
+
+      res.status(500).json({
+        message: "Server Error",
+      });
+    }
+  }
+);
 module.exports = router;

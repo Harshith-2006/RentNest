@@ -70,7 +70,7 @@ export const fetchOwnerDashboard = async () => {
         headers: {
           Authorization: `Bearer ${token}`
         }
-      }
+      }       
     );
 
   return {
@@ -178,23 +178,18 @@ export const removeFavorite = async (
 
 export const fetchUserDashboard = async () => {
 
-  const token =
-    localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-  const favorites =
-    await axios.get(
-      `${API}/favorite`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
-    );
+  const response = await axios.get(
+    `${API}/user/dashboard`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
-  return {
-    favorites: favorites.data
-  };
-
+  return response.data;
 };
 // ======================
 // ADMIN DASHBOARD
