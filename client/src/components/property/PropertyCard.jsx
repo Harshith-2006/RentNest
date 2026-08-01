@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 
 function formatRent(n) {
 
@@ -20,6 +20,21 @@ export default function PropertyCard({
   favorited = false,
   onToggleFavorite,
 }) {
+  const navigate = useNavigate();
+
+const handleFavorite = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    navigate("/login");
+    return;
+  }
+
+  onToggleFavorite?.(property._id);
+};
 
   return (
 
@@ -37,15 +52,11 @@ export default function PropertyCard({
             className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           />
           <button
-            onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            onToggleFavorite?.(property._id);
-                }}
-              className="absolute right-3 top-3 rounded-full bg-white p-2 shadow-md"
-              >
-                {favorited ? "❤️" : "🤍"}
-          </button>
+  onClick={handleFavorite}
+  className="absolute right-3 top-3 rounded-full bg-white/90 p-2 shadow-md transition hover:scale-110"
+>
+  {favorited ? "❤️" : "🤍"}
+</button>
 
         </div>
 

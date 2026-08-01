@@ -44,9 +44,6 @@ const featured = list;
               Find a home that feels like{" "}
               <span className="bg-gradient-to-r from-brand-600 to-teal-500 bg-clip-text text-transparent">yours</span>.
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-              Discover architect-led spaces, transparent pricing, and a booking flow designed for peace of mind.
-            </p>
           </div>
           <div className="mt-10 max-w-4xl">
             <SearchBar />
@@ -78,7 +75,7 @@ const featured = list;
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {nearby.map((p) => (
-                  <PropertyCard key={p._id} property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
+                  <PropertyCard key={p._id} property={p} favorited={has(p._id)} onToggleFavorite={toggle} />
                 ))}
               </div>
             </section>
@@ -101,7 +98,7 @@ const featured = list;
               <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {featured.map((p) => (
                   <div key={p._id} className="[&_article]:bg-white [&_article]:text-slate-900">
-                    <PropertyCard property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
+                    <PropertyCard property={p} favorited={has(p._id)} onToggleFavorite={toggle} />
                   </div>
                 ))}
               </div>
@@ -120,7 +117,7 @@ const featured = list;
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {list.slice(0, 4).map((p) => (
-                  <PropertyCard key={p._id} property={p} favorited={has(p.id)} onToggleFavorite={toggle} />
+                  <PropertyCard key={p._id} property={p} favorited={has(p._id)} onToggleFavorite={toggle} />
                 ))}
               </div>
             </section>
