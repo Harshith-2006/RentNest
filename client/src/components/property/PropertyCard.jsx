@@ -46,10 +46,10 @@ const handleFavorite = (e) => {
         <div className="relative aspect-[4/3] overflow-hidden">
 
           <img
-            src={`https://rentnest-fako.onrender.com/${property.image}`}
-            alt={property.title}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-          />
+  src={property.image}
+  alt={property.title}
+  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+/>
           <button
   onClick={handleFavorite}
   className="absolute right-3 top-3 rounded-full bg-white/90 p-2 shadow-md transition hover:scale-110"

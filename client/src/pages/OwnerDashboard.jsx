@@ -126,7 +126,7 @@ export default function OwnerDashboard() {
           }
         }
       );
-
+      
       toast({
         message: response.data.message,
         type: "success"
@@ -144,6 +144,45 @@ export default function OwnerDashboard() {
     }
 
   };
+  // DELETE HOUSE
+const deleteHouse = async (id) => {
+
+  const confirmDelete = window.confirm(
+    "Are you sure you want to delete this house?"
+  );
+
+  if (!confirmDelete) return;
+
+  try {
+
+    const token = localStorage.getItem("token");
+
+    const response = await axios.delete(
+      `https://rentnest-fako.onrender.com/house/delete/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    toast({
+      message: response.data.message,
+      type: "success",
+    });
+
+    fetchDashboard();
+
+  } catch (error) {
+
+    toast({
+      message: "Failed to delete house",
+      type: "error",
+    });
+
+  }
+
+};
 
 
   if (loading) {
@@ -249,8 +288,8 @@ export default function OwnerDashboard() {
                   className="overflow-hidden rounded-3xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900"
                 >
 
-                  <img
-                    src={`https://rentnest-fako.onrender.com/${house.image}`}
+                    <img
+                    src={house.image}
                     alt={house.title}
                     className="h-52 w-full object-cover"
                   />
@@ -281,6 +320,23 @@ export default function OwnerDashboard() {
 >
   {house.status}
 </span>
+<div className="mt-5 flex gap-3">
+
+  <button
+    onClick={() => navigate(`/edit-house/${house._id}`)}
+    className="rounded-xl bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+  >
+    Edit
+  </button>
+
+  <button
+    onClick={() => deleteHouse(house._id)}
+    className="rounded-xl bg-red-600 px-4 py-2 text-white hover:bg-red-700"
+  >
+    Delete
+  </button>
+
+</div>
 
                   </div>
 
@@ -361,6 +417,7 @@ export default function OwnerDashboard() {
                         >
                           Reject
                         </button>
+                        
 
                       </div>
 
