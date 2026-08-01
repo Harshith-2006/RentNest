@@ -30,10 +30,9 @@ router.post(
         furnished
       } = req.body;
 
-      const imagePath = req.file
-        ? req.file.path
-        : "";
-
+const imagePath = req.file
+  ? req.file.path
+  : "";
       const newHouse = new House({
         title,
         description,
