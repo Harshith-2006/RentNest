@@ -149,11 +149,11 @@ export default function HouseDetails() {
 
         <div>
 
-          <img
-            src={`https://rentnest-fako.onrender.com/${house.image}`}
-            alt={house.title}
-            className="h-[450px] w-full rounded-3xl object-cover"
-          />
+<img
+  src={house.image}
+  alt={house.title}
+  className="h-[450px] w-full rounded-3xl object-cover"
+/>
 
         </div>
 
