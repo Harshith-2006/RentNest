@@ -77,7 +77,30 @@ router.get("/owner", authMiddleware, async (req, res) => {
   }
 
 });
+// USER VIEW MY REQUESTS
+router.get("/my", authMiddleware, async (req, res) => {
 
+  try {
+
+    const requests = await RentalRequest.find({
+      user: req.user.id
+    })
+    .populate("house")
+    .populate("owner", "name email");
+
+    res.status(200).json(requests);
+
+  } catch (error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      message: "Server Error"
+    });
+
+  }
+
+});
 
 // ACCEPT REQUEST
 router.put("/accept/:id", authMiddleware, async (req, res) => {

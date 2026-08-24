@@ -34,6 +34,7 @@ export const fetchHouse = async (id) => {
 };
 
 
+
 // ======================
 // OWNER DASHBOARD
 // ======================
@@ -94,7 +95,7 @@ export const submitRentalRequest = async (
     localStorage.getItem("token");
 
   const response = await axios.post(
-    `${API}/request/send/${houseId}`,
+    `${API}/request/add/${houseId}`,
     {},
     {
       headers: {
@@ -177,19 +178,21 @@ export const removeFavorite = async (
 // ======================
 
 export const fetchUserDashboard = async () => {
-
   const token = localStorage.getItem("token");
 
-  const response = await axios.get(
-    `${API}/user/dashboard`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const [dashboard, requests] = await Promise.all([
+    axios.get(`${API}/user/dashboard`, {
+      headers: { Authorization: `Bearer ${token}` },
+    }),
+    axios.get(`${API}/request/my`, {
+      headers: { Authorization: `Bearer ${token}` },
+    }),
+  ]);
 
-  return response.data;
+  return {
+    ...dashboard.data,
+    rentalRequests: requests.data,
+  };
 };
 // ======================
 // ADMIN DASHBOARD
